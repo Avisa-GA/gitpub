@@ -4,9 +4,16 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+const drinks = require('./models/drinks')
+
 // route all Action
 app.get('/', (req, res) => {
     res.send('Welcome to gitpub App!')
+})
+
+// route show all 
+app.get('/drinks', (req, res) => {
+    res.send(drinks)
 })
 
 // listen to port
