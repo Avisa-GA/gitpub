@@ -18,6 +18,13 @@ app.get('/drinks', (req, res) => {
     })
 })
 
+// route show one item
+app.get('/drinks/:indexOfDrinkArray', (req, res) => {
+    res.render('drinks_show.ejs', {
+        drink: drinks[req.params.indexOfDrinkArray]
+    })
+})
+
 // listen to port
 app.listen(port, () => {
     console.log('Listening to port: ', port)
