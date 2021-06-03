@@ -8,6 +8,11 @@ const port = 3000
 const drinks = require('./models/drinks')
 const foods = require('./models/foods')
 
+app.use(function(req, res, next) {
+    res.setHeader("Content-Type", "image/png");
+    next();
+});
+
 // route all Action
 app.get('/', (req, res) => {
     res.send('Welcome to gitpub App!')
@@ -17,7 +22,6 @@ app.get('/', (req, res) => {
 app.get('/drinks', (req, res) => {
     res.render('drinks_index.ejs', {
         allDrinks: drinks
-        // allFoods: foods
     })
 })
 
@@ -30,7 +34,7 @@ app.get('/foods', (req, res) => {
 
 // route show one item
 app.get('/drinks/:id', (req, res) => {
-        res.type('png')
+        // res.type('png')
         res.render('drinks_show.ejs', {
             drink: drinks[req.params.id]
         })
@@ -38,7 +42,7 @@ app.get('/drinks/:id', (req, res) => {
 
 
 app.get('/foods/:id', (req, res) => {
-      res.type('png')
+    //   res.type('png')
       res.render('foods_show.ejs', {
         food: foods[req.params.id]
         
