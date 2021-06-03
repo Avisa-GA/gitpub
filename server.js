@@ -30,7 +30,7 @@ app.get('/foods', (req, res) => {
 
 // route show one item
 app.get('/drinks/:id', (req, res) => {
-   
+        res.type('png')
         res.render('drinks_show.ejs', {
             drink: drinks[req.params.id]
         })
@@ -38,7 +38,7 @@ app.get('/drinks/:id', (req, res) => {
 
 
 app.get('/foods/:id', (req, res) => {
-
+      res.type('png')
       res.render('foods_show.ejs', {
         food: foods[req.params.id]
         
